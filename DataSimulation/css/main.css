@@ -1,0 +1,73 @@
+﻿.small-nav .navbar-nav >li >a 
+{
+    padding-top:6px !important;
+    padding-bottom: 4px !important;
+}
+
+.small-nav .navbar .navbar-nav
+{
+   display: inline-block;
+   float: none;
+}
+
+.small-nav button
+{
+    margin: 5px 10px 5px 0px;
+    padding: 3px 10px;
+    height:22px;
+}
+.small-container .container
+{
+    width:400px;
+}
+
+.small-container .jumbotron
+{
+    padding: 10px 15px;
+    text-align:center;
+}
+
+.jumbotron input[type=file]
+{
+    display:inline-block;
+    width:190px;
+}
+.small-nav .navbar .navbar-collapse 
+{
+    text-align:center;
+}
+
+.small-nav .navbar li
+{
+    margin-left: 40px;
+}
+
+
+.small-nav .navbar-brand
+{
+    float: left;
+    height: 32px;
+    padding: 6px 6px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.small-nav
+{
+    float: left;
+    height: 32px;
+    padding: 6px 6px;
+    /*font-size: 18px;*/
+    line-height: 20px;
+}
+.small-nav .navbar
+{
+    min-height: 32px; !important
+}
+
+.navbar-img
+{
+    margin-left:5px;
+    height:25px;
+    margin-top:5px;
+}

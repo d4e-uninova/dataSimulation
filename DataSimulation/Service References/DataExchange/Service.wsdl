@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IDataTranslation_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IDataSimulation_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://gris-groupware.uninova.pt:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://gris-groupware.uninova.pt:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://gris-groupware.uninova.pt:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataExchangeSolution" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataTranslation_translate_InputMessage">
+    <wsdl:part name="parameters" element="tns:translate" />
+  </wsdl:message>
+  <wsdl:message name="IDataTranslation_translate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:translateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSimulation_simulate_InputMessage">
+    <wsdl:part name="parameters" element="tns:simulate" />
+  </wsdl:message>
+  <wsdl:message name="IDataSimulation_simulate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:simulateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataTranslation">
+    <wsdl:operation name="translate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataTranslation/translate" message="tns:IDataTranslation_translate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataTranslation/translateResponse" message="tns:IDataTranslation_translate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDataSimulation">
+    <wsdl:operation name="simulate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSimulation/simulate" message="tns:IDataSimulation_simulate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSimulation/simulateResponse" message="tns:IDataSimulation_simulate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IDataTranslation" type="tns:IDataTranslation">
+    <wsp:PolicyReference URI="#WSHttpBinding_IDataTranslation_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="translate">
+      <soap12:operation soapAction="http://tempuri.org/IDataTranslation/translate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_IDataSimulation" type="tns:IDataSimulation">
+    <wsp:PolicyReference URI="#WSHttpBinding_IDataSimulation_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="simulate">
+      <soap12:operation soapAction="http://tempuri.org/IDataSimulation/simulate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="WSHttpBinding_IDataTranslation" binding="tns:WSHttpBinding_IDataTranslation">
+      <soap12:address location="http://gris-groupware.uninova.pt:8080/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://gris-groupware.uninova.pt:8080/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_IDataSimulation" binding="tns:WSHttpBinding_IDataSimulation">
+      <soap12:address location="http://gris-groupware.uninova.pt:8080/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://gris-groupware.uninova.pt:8080/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
