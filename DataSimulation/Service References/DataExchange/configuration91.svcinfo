@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="sT9nHBOp9Kebzi5r3T2F3nuYNcw=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="v07xy3PlIYr6xlNlQJkI2gJ2UVU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IDataTranslation">
       <properties>
@@ -251,10 +251,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IDataTranslation" contract="DataExchange.IDataTranslation" bindingType="wsHttpBinding" address="http://gris-groupware.uninova.pt:8080/" bindingConfiguration="WSHttpBinding_IDataTranslation">
+    <endpoint name="WSHttpBinding_IDataTranslation" contract="DataExchange.IDataTranslation" bindingType="wsHttpBinding" address="http://127.0.0.1:8080/" bindingConfiguration="WSHttpBinding_IDataTranslation">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://gris-groupware.uninova.pt:8080/</serializedValue>
+          <serializedValue>http://127.0.0.1:8080/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -336,10 +336,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="WSHttpBinding_IDataSimulation" contract="DataExchange.IDataSimulation" bindingType="wsHttpBinding" address="http://gris-groupware.uninova.pt:8080/" bindingConfiguration="WSHttpBinding_IDataSimulation">
+    <endpoint name="WSHttpBinding_IDataSimulation" contract="DataExchange.IDataSimulation" bindingType="wsHttpBinding" address="http://127.0.0.1:8080/" bindingConfiguration="WSHttpBinding_IDataSimulation">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://gris-groupware.uninova.pt:8080/</serializedValue>
+          <serializedValue>http://127.0.0.1:8080/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

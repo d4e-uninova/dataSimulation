@@ -73,16 +73,16 @@
     <Content Include="Service References\DataExchange\DataSimulation.DataExchange.ServiceTranslationResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\DataExchange\item.xsd">
+    <None Include="Service References\DataExchange\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DataExchange\item1.xsd">
+    <None Include="Service References\DataExchange\item31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DataExchange\item2.xsd">
+    <None Include="Service References\DataExchange\item32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DataExchange\Service.wsdl" />
+    <None Include="Service References\DataExchange\Service1.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -107,13 +107,13 @@
     <Content Include="lib\bootstrap-3.3.5\js\npm.js" />
     <Content Include="lib\jquery-2.1.4\jquery-2.1.4.min.js" />
     <None Include="Properties\PublishProfiles\Default Web Site.pubxml" />
-    <None Include="Service References\DataExchange\item.disco" />
     <None Include="Service References\DataExchange\configuration91.svcinfo" />
     <None Include="Service References\DataExchange\configuration.svcinfo" />
     <None Include="Service References\DataExchange\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\DataExchange\item1.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
