@@ -14,7 +14,7 @@ namespace DataSimulation
     {
         public static Dictionary<SafeWaitHandle, string> fileNames = new Dictionary<SafeWaitHandle, string>();
         public static Dictionary<SafeWaitHandle, string> addresses = new Dictionary<SafeWaitHandle, string>();
-
+        public static Dictionary<SafeWaitHandle, DataExchange.DataSimulationClient> clients = new Dictionary<SafeWaitHandle, DataExchange.DataSimulationClient>();
         public static Logger logger;
         public static string serverRoot;
 

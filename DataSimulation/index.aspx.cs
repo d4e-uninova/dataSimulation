@@ -10,7 +10,6 @@ namespace DataSimulation
 {
     public partial class index : System.Web.UI.Page
     {
-        private DataExchange.DataSimulationClient client = new DataExchange.DataSimulationClient();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,6 +73,7 @@ namespace DataSimulation
         {
             try
             {
+                DataExchange.DataSimulationClient client = new DataExchange.DataSimulationClient();
                 IAsyncResult asyncResult = client.Beginsimulate(new DataExchange.ServiceSimulationInfo
                 {
                     Data = modelFile,
@@ -81,6 +81,7 @@ namespace DataSimulation
                     ModelFormat = modelFormat,
                     Type = simulationType
                 }, callback, client);
+                Global.clients.Add(asyncResult.AsyncWaitHandle.SafeWaitHandle, client);
                 Global.fileNames.Add(asyncResult.AsyncWaitHandle.SafeWaitHandle, outFile);    
                 Global.addresses.Add(asyncResult.AsyncWaitHandle.SafeWaitHandle, Request.UserHostAddress);
 
@@ -97,6 +98,7 @@ namespace DataSimulation
             {
                 string path = Global.fileNames[asyncResult.AsyncWaitHandle.SafeWaitHandle];
                 string address = Global.addresses[asyncResult.AsyncWaitHandle.SafeWaitHandle];
+                DataExchange.DataSimulationClient client = Global.clients[asyncResult.AsyncWaitHandle.SafeWaitHandle];
                 DataExchange.ServiceSimulationResult result = client.Endsimulate(asyncResult);
                 if (result.Succeeded)
                 {
@@ -108,8 +110,10 @@ namespace DataSimulation
                 {
                     Global.logger.log("Simulation requested by: " + address + " failed", Logger.LogType.ERROR);
                 }
+                client.Close();
                 Global.fileNames.Remove(asyncResult.AsyncWaitHandle.SafeWaitHandle);
                 Global.addresses.Remove(asyncResult.AsyncWaitHandle.SafeWaitHandle);
+                Global.clients.Remove(asyncResult.AsyncWaitHandle.SafeWaitHandle);
             }
             catch(Exception ex)
             {
